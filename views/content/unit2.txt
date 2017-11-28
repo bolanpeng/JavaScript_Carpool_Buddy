@@ -1,0 +1,48 @@
+<p><b>User Story 2 (Customer Description)</b></p>
+<ol type="1">
+  <li>Search for users within same zip code, or within certain distance from user's start address.
+     <ul style="list-style-type:circle">
+        <li>returns table of users with buttons to contact each user</li>
+        <li>hides addresses for security purposes, but gives distances - distances can be an upgrade later</li>
+     </ul>
+  </li>
+</ol>
+<p><b>Unit Tests</b></p>
+<p>Each unit test defines a profile of a new user in terms of their home zip code, work zip code, the time they leave home to go to work, the time they leave work to return home, and the time they are willing to wait at either location for a ride share buddy. The profile is then used to query the existing 50 profiles for a match.  A match occurs when the two profiles have the same home and work zipcodes and the time difference between when they both leave for work as well as when they return home is within the wait time specified in the new profile. </p>
+<img src="images/UT2.png" width="750px" height="300px">
+<p><b>Implementation</b></p>
+<section id="unittest2">
+   <h3>Unit Test 2</h3>
+   <form id="homeform" name="homeform" autocomplete="off">
+      <fieldset>
+         <button type="submit" class="button-submit" id="unit2-test2-submit">Test 2</button>
+         <button type="submit" class="button-submit" id="unit2-test1-submit">Test 1</button>
+         <button type="submit" class="button-submit" id="unit2-test4-submit">Test 4</button>
+         <button type="submit" class="button-submit" id="unit2-test3-submit">Test 3</button>
+         <button type="submit" class="button-submit" id="unit2-test6-submit">Test 6</button>
+         <button type="submit" class="button-submit" id="unit2-test5-submit">Test 5</button>
+         <button type="submit" class="button-submit" id="unit2-test8-submit">Test 8</button>
+         <button type="submit" class="button-submit" id="unit2-test7-submit">Test 7</button>
+      </fieldset>
+    </form>
+    <div>
+      <h5></h5>
+      <ul>
+         <li><span class="resultTitle">Test:</span><span class="result" id="test-description"></span></li></br></br>
+         <li><span class="resultTitle">Status:</span><span class="result" id="test-status"></span></li></br></br>
+         <li><span class="resultTitle">Expected:</span><span class="result" id="test-expected"></span></li></br></br>
+         <li><span class="resultTitle">Results:</span><span class="result" id="test-results"></span></li></br></br>
+     </ul>
+  </div>
+</section>
+<nav>
+   <ul class="pager">
+      <li>
+         <a href="/unit1">Unit 1</a>
+      </li>
+      <li>
+         <a href="/">Home</a>
+      </li>
+   </ul>
+</nav>
+

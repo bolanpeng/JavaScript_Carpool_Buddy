@@ -1,0 +1,19 @@
+<p><b>Team Members</b></p>
+
+<ul>
+  <li>Daren Baca</li>
+  <li>Jerry Hayes</li>
+  <li>Patrick Ho</li>
+  <li>Nick Martin</li>
+  <li>Louise McGuire</li>
+  <li>Bolan Peng</li>
+</ol>
+
+<nav>
+   <ul class="pager">
+      <li>
+         <a href="/">Home</a>
+      </li>
+   </ul>
+</nav>
+

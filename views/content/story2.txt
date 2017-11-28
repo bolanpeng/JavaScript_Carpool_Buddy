@@ -1,0 +1,55 @@
+<p><b>User Story 2 (Customer Description)</b></p>
+<ol type="1">
+  <li>Search for users within same zip code, or within certain distance from user's start address.
+  </li>
+</ol>
+<p><b>Search Implementation</b></p>
+<div id="profile_form_result_message"></div>
+
+<form action="/search" method="post">
+	<fieldset><legend>Round Trip Carpool Buddy Search</legend>
+		<table>
+			<thead> 
+            <tr> 
+               <td class = "us2"></td>
+               <td class = "us2">Zip Code</td>
+               <td class = "us2">Departure/Return (hh:mm:ss)</td>
+            </tr>
+         </thead>
+			<tbody>
+            <tr>
+               <td class = "us2">From:</td>
+               <td class = "us2"><input type = "text" name = "homezipCode" id="homezipCode"></input></td>
+               <td class = "us2"><input type = "text" name = "leavehome" id = "leavehome"></input></td>
+            </tr>
+            <tr>
+               <td class = "us2">To:</td>
+               <td class = "us2"><input type = "text" name = "workzipCode" id="workzipCode"></input></td>
+               <td class = "us2"><input type = "text" name = "leavework" id = "leavework"></input></td>
+            </tr>
+			</tbody>
+		</table>
+	</fieldset>
+
+	<p>
+   <table>
+      <tr><td class = "us2">Wait Time (min): <input type = "text" name = "waittime" id = "waittime"></input></td></tr>
+      <tr><td class = "us2"><input type = "button" name = "search" value = "Find My Buddy!" id="findBuddy"></input></td></tr>
+   </table>
+</form>
+
+<table id = "matches">
+</table>
+
+
+
+<nav>
+   <ul class="pager">
+      <li>
+         <a href="/story1">Story 1</a>
+      </li>
+      <li>
+         <a href="/story3">Story 3</a>
+      </li>
+   </ul>
+</nav>

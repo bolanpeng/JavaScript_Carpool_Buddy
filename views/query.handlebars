@@ -1,0 +1,48 @@
+<div class="howto-topwrapper">
+   <div class="howto-static">
+      {{> header}}
+      <div class="howto-title">
+         <p>{{header}}</p>
+      </div>
+   </div>
+   <div class="howto-content1">
+   <table id="profileTable">
+      <thead>
+        <tr>
+         <th>Name</th>
+         <th>Email</th>
+         <th>Home Zip Code</th>
+         <th>Work Zip Code</th>
+         <th>Leave Home Time</th>
+         <th>Leave Work Time</th>
+         <th>Wait Time</th>
+         <th>Empty Seats</th>
+        </tr>
+      </thead>
+
+      <tbody id="theTable">
+         {{#each results }}
+         <tr id="row{{this.id}}">
+           <td>{{this.name}}</td>
+           <td>{{this.email}}</td>
+           <td>{{this.homezipcode}}</td>
+           <td>{{this.workzipcode}}</td>
+           <td>{{this.leavehome}}</td>
+           <td>{{this.leavework}}</td>
+           <td>{{this.waittime}}</td>
+           <td>{{this.emptyseats}}</td>
+          </tr> 
+         {{/each}}
+      </tbody> 
+   </table>
+   <nav>
+      <ul class="pager">
+         <li>
+             <a href="/story1">Return</a>
+         </li>
+      </ul>
+   </nav>
+
+   </div>
+</div>
+

@@ -1,0 +1,72 @@
+<p>Key to this project is the ability to provide automatic notification to users of potential matches and a forum that supports user communication without disclosing personal information such as email addresses, home addresses, or phone numbers. One approach to providing these capabilities is to implement a subscribe-publish architecture that would allow communication via topics.  Since the team had no prior experience with such architectures, it was decided to do several spikes using Amazon's <a href="https://aws.amazon.com/documentation/sns">Simple Notification Service</a> (SNS). The first spike presented in this section illustrates our spike efforts in understanding how to use AWS SNS to subscribe emails to a given topic. The second spike presented in the next section describes our efforts in understanding how to post a message to an existing topic that is then broadcast to all subscribed emails. This understanding was used to provide better estimation effort values associated with the user stories</p>  
+<p>The code specific to calling AWS SNS and subscribing an email to the topic, along with a test implementation illustrating the API and results are shown below. </p>
+<p>Code</p>
+<pre>
+app.get('/s2', function(req, res, next) {
+  var params = {
+      Name: req.query.topic   
+  };
+  sns.createTopic(params, function(err, data) {
+      var response = {};
+      if (err) {
+          response.status = err.message;
+          res.send(response);
+      }
+      else {
+          var params = {
+             'TopicArn':  data.TopicArn,
+             'Protocol':  'email',
+             'Endpoint':  req.query.email
+          }
+          sns.subscribe(params, function(err, data) {
+              if (err) {
+                  response.status = err.message;
+              }
+              else {
+                  response.status = 'Pending confirmation sent to ' + req.query.email + ' for topic ' + req.query.topic; 
+              }
+              res.send(response);
+          });
+      }
+  }); 
+});
+
+</pre>
+
+<p>Implementation</p>
+<section id="userstory2">
+   <h3>Subscribe to Topic</h3>
+   <form id="homeform" name="homeform" autocomplete="off">
+      <fieldset>
+         <label for "spike2-email" class="title">Email</label>
+         <input type="text" name="spike2-email" id="spike2-email"></br></br>
+         <label for "spike2-topic" class="title">Topic</label>
+         <input type="text" name="spike2-topic" id="spike2-topic"></br></br>
+         <button type="submit" class="button-submit" id="spike2-submit">Submit</button>
+         <button type="reset"  class="button-reset" id="spike2-reset">Reset</input>
+      </fieldset>
+    </form>
+    <div>
+      <h5></h5>
+      <ul>
+         <li><span class="resultTitle">Status:</span><span class="result" id="spike2-status"></span></li></br>
+     </ul>
+  </div>
+</section>
+</br>
+<p><b>Example Subscribe Request Email:</b>  A request email sent by AWS Notification to a user subscribing to topic "TestTopic". The user accepts the request by clicking on the "Confirm subscription".</p>
+<img src="images/M1.png" alt="Subscript Request" style="width:576px;height:275;">
+</br>
+<p><b>Example Subscribe Confirmation Email:</b>  A confirmation email sent by AWS Notification to a user after accepting request. All future posts to the topic will be automatically sent to the user's email address. At any time the user is able to unsubscribe to the topic by clicking the unsubscribe link.</p>
+<img src="images/M2.png" alt="Subscript Request" style="width:576px;height:275;">
+
+<nav>
+   <ul class="pager">
+      <li>
+         <a href="/spike1">Spike 1</a>
+      </li>
+      <li>
+         <a href="/spike3">Spike 2</a>
+      </li>
+   </ul>
+</nav>

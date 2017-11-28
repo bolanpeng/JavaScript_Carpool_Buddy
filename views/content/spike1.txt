@@ -1,0 +1,80 @@
+<p>Calculating distance between two addresses requires two geoprocessing steps; the first step is to convert the addresses into spatial coordinates using geocoding services, and the second step is to find the shortest route (either in miles or time) by tracing a path between the two spatial coordinates through an existing road network. Fortunately, both of these capabilities is integrated into a single Google Map's API called <a href="https://developers.google.com/maps/documentation/distance-matrix/intro">Distance Matrix</a>.</p>
+<p>Since calcuting distances between two addresses is a fundamental requirement for the carpool website, the team decided to do a "spike" in order to give us a better understanding of the effort required to support this requirement.  This spike was done prior to assigning estimation effort values on the user stories so that we could obtain more accurate values.  The code specific to calling the Google Maps Distance-Matrix API and a test implementation illustrating the API are shown below. </p>
+<p>Code</p>
+<pre>
+app.get('/s1', function(req, res, next) {
+  var base_url = "https://maps.googleapis.com/maps/api/distancematrix/json?";
+  var query = "origins=" + req.query.address1.replace(/\s+/g, '+');
+  query = query + "+" + req.query.city1.replace(/\s+/g, '+');
+  query = query + "+" + req.query.state1.replace(/\s+/g, '+');
+  query = query + "&destinations=" + req.query.address2.replace(/\s+/g, '+');
+  query = query + "+" + req.query.city2.replace(/\s+/g, '+');
+  query = query + "+" + req.query.state2.replace(/\s+/g, '+');
+  query = query + "&mode=driving&units=imperial&key=" + credentials.distanceKey;
+  var url = base_url + query;
+  request(url, Distance);
+
+  function Distance(error, response, body) {
+    if(!error && response.statusCode < 400) {
+        var payload = {};
+        var json = JSON.parse(body);
+        if (json.status == 'OK'){
+           try {
+               payload.distance = json.rows[0].elements[0].distance.text;
+               payload.duration = json.rows[0].elements[0].duration.text;
+           } 
+           catch(err) {
+               payload.distance = '?';
+               payload.duration = '?';
+           }
+        } else {
+           payload.distance = '?';
+           payload.duration = '?';
+        }
+        res.send(payload);
+     } else {
+        res.send({});
+     } 
+  } 
+});
+</pre>
+<p>Implementation</p>
+<section id="userstory1">
+   <h3>Address Distance Calculator</h3>
+   <form id="homeform" name="homeform" autocomplete="off">
+      <fieldset>
+         <label for "spike1-address1" class="title">Address 1</label>
+         <input type="text" name="spike1-address1" id="spike1-address1"></br></br>
+         <label for "spike1-city1" class="title">City 1</label>
+         <input type="text" name="spike1-city1" id="spike1-city1"></br></br>
+         <label for "spike1-state1" class="title">State 1</label>
+         <input type="text" name="spike1-state1" id="spike1-state1"></br></br>
+         <label for "spike1-address2" class="title">Address 2</label>
+         <input type="text" name="spike1-address2" id="spike1-address2"></br></br>
+         <label for "spike1-city2" class="title">City 2</label>
+         <input type="text" name="spike1-city2" id="spike1-city2"></br></br>
+         <label for "spike1-state2" class="title">State 2</label>
+         <input type="text" name="spike1-state2" id="spike1-state2"></br></br>
+         <button type="submit" class="button-submit" id="spike1-submit">Submit</button>
+         <button type="reset"  class="button-reset" id="spike1-reset">Reset</input>
+      </fieldset>
+    </form>
+    <div>
+      <h3>Distance results</h3>
+      <ul>
+         <li><span class="resultTitle">Distance:</span><span class="result" id="spike1-distance"></span></li></br>
+         <li><span class="resultTitle">Duration:</span><span class="result" id="spike1-duration"></span></li></br>
+
+     </ul>
+  </div>
+</section>
+<nav>
+   <ul class="pager">
+      <li>
+         <a href="/">Home</a>
+      </li>
+      <li>
+         <a href="/spike2">Spike 2</a>
+      </li>
+   </ul>
+</nav>

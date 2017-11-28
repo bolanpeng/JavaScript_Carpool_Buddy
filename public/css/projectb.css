@@ -1,0 +1,72 @@
+ol {
+  font-weight: bold;
+  margin-left: 10px;
+}
+ol ul {
+  font-weight: normal;
+  margin-left: 20px;
+}
+
+#unittest1 {
+  height: 550px;
+}
+
+#unittest2 {
+  height: 500px;
+}
+
+#insertForm {
+  margin-bottom: 20px;
+}
+
+#box {
+  border: 2px solid #888888;
+  width: 750px;
+  padding: 25px;
+}
+
+div.div-insert {
+  display: inline-block;
+}
+
+#table-head {
+   background-color: white;
+   margin-top: 0px;
+   display: table;
+}
+#table-body {
+   margin-top: 100px;
+}
+
+#profile {
+  text-align: left;
+}
+
+#profile input {
+  width: 35%;
+  line-height: 2;
+  font-size: 18px;
+  margin-top: 7px;
+}
+
+#create_profile {
+  padding: 5px;
+  color: #fff;
+  background: #000;
+  width: 100px;
+}
+
+#profile_form_result_message {
+  color: green;
+}
+
+.us2 {
+	padding: 5px;
+	border: 0px;
+}
+.cres {
+  margin-left:  25px;
+  width: 200px;
+}
+
+}

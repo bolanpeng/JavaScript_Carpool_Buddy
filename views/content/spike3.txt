@@ -1,0 +1,56 @@
+<p>This section illustrates the spike used by the team to better understand how to post a message to an existing topic in AWS SNS that is then broadcast to all subscribed emails. This understanding was used to provide better estimation effort values associated with the user stories</p>  
+<p>The code specific to calling AWS SNS and sending a message to a topic, along with a test implementation illustrating the API and results are shown below. </p>
+<p>Code</p>
+<pre>
+app.get('/s3', function(req, res, next) {
+  var topic = credentials.awsbase + req.query.topic;
+  var params = {
+      'Message': req.query.message,
+      'Subject': 'Car pool update',
+      'TopicArn':  topic,
+  };
+  sns.publish(params, function(err, data) {
+      var response = {};
+      if (err)  {
+         response.status = err.message;
+      }
+      else   {
+         response.status = "Message sent to " + req.query.topic;
+      }
+      res.send(response);
+  });
+});
+</pre>
+<p>Implementation</p>
+<section id="userstory3">
+   <h3>Send Topic Message</h3>
+   <form id="homeform" name="homeform" autocomplete="off">
+      <fieldset>
+         <label for "spike3-topic" class="title">Topic</label>
+         <input type="text" name="spike3-topic" id="spike3-topic"></br></br>
+         <label for "spike3-message" class="title">Message</label>
+         <input type="text" name="spike3-message" id="spike3-message"></br></br>
+         <button type="submit" class="button-submit" id="spike3-submit">Submit</button>
+         <button type="reset"  class="button-reset" id="spike3-reset">Reset</input>
+      </fieldset>
+    </form>
+    <div>
+      <h5></h5>
+      <ul>
+         <li><span class="resultTitle">Status:</span><span class="result" id="spike3-status"></span></li></br>
+     </ul>
+  </div>
+</section>
+</br>
+<p><b>Example Topic Message Email:</b>  A message has been posted to a topic which then broadcast the message to all subscribed users. Each user receives the own personalized email which prevents them from seeing the email addresses of others subscribed to the topic, thus providing the level of security requested by the customer. In addition, if the user feels this is a spam message they simple click on the link to unscribe from the topic.</p>
+<img src="images/M3.png" alt="Message Received" style="width:576px;height:275;">
+<nav>
+   <ul class="pager">
+      <li>
+         <a href="/spike2">Spike 2</a>
+      </li>
+      <li>
+         <a href="/">Home</a>
+      </li>
+   </ul>
+</nav>

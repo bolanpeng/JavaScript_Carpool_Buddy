@@ -1,0 +1,62 @@
+<p><b>User Story 1 (Customer Description)</b></p>
+<ol type="1">
+  <li>Create a user profile - this will be your search criteria.
+     <ul style="list-style-type:circle">
+        <li>name</li>
+        <li>start address (could be zip code the user lives in)</li>
+        <li>stop address (could be implemented such that everyone has the same stop address, e.g work at the same company</li>
+        <li>start time</li>
+        <li>end time</li>
+        <li>number of carpoil spaces available - when this is zero, stop receiving alerts about possible ne carpool buddies.</li>
+     </ul>
+  </li>
+</ol>
+
+<p><b>List existing profiles => </b><a href="/showtable">Show Profiles</a></p>
+<p><b>Create Profile Implementation</b></p>
+<div id="profile_form_result_message"></div>
+
+<form id="profile" method="post">
+
+   <p><label for="name">Name</label></br>
+   <input type="text" name="name" id="name" placeholder="First Last"></p>
+   
+   <p><label for="email">Email Address</label></br>
+   <input type="text" name="email" id="email"  placeholder="ex. janedoe@gmail.com"></p>
+   
+   <p><label for="home_zip">Home Zip Code</label></br>
+   <input type="text" name="home_zip" id="home_zip" placeholder="5 digit code"></p>
+
+   <p><label for="work_zip">Work Zip Code</label></br>
+   <input type="text" name="work_zip" id="work_zip" placeholder="5 digit code"></p>
+
+   <p><label for="leave_home">Home Departure Time</label></br>
+   <input type="text" name="leave_home" id="leave_home" placeholder="hh:mm:ss"></p>
+
+   <p><label for="leave_work">Work Departure Time</label></br>
+   <input type="text" name="leave_work" id="leave_work" placeholder="hh:mm:ss"></p>
+
+   <p><label for="wait_time">Allowable Wait Time</label></br>
+   <input type="text" name="wait_time" id="wait_time" placeholder="hh:mm:ss"></p>
+
+   <p><label for="empty_seats">Empty Seats</label></br>
+   <select name="empty_seats" id="empty_seats">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+   </select></p>
+
+   <button type="submit" id="create_profile">Submit</button>
+
+</form>
+<nav>
+   <ul class="pager">
+      <li>
+         <a href="/">Home</a>
+      </li>
+      <li>
+         <a href="/story2">Story 2</a>
+      </li>
+   </ul>
+</nav>

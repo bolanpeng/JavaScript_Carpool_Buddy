@@ -1,0 +1,37 @@
+<ol type="1">
+  <li>A way to make a profile for yourself and to state what you need in a carpool buddy.
+     <ul style="list-style-type:circle">
+        <li>Include where you live (this could be hidden from other people until you have decided to carpool, but it could be used to match you with other people nearby.</li>
+        <li>What times you would be going to and from work.</li>
+        <li>Where you work</li>
+        <li>How many people you have room for in your car</li>
+        <li>Ability to update your profile as you fill your car or as your situation changes</li>
+     </ul>
+  </li>
+  <li>A way to alert you that someone is looking for a carpool buddy that wants to start and end withing a certain distance of where you want to start and end.
+     <ul style="list-style-type:circle">
+        <li>Get alerts when someone new is looking for a carpool buddy that meets your criteria(maybe with an email or a text alert depending on your preferences).</li>
+        <li>If you are looking for more than one carpool buddy, you can start out with the buddies you can find and wait for more people to sign up to find additional people to fill your car pool.</li>
+        <li>You can change your profile to say that your carpool is full to stop receiving alerts</li>
+        <li>You can also adjust your search criteria if you are receiving too many or not enough alerts.</li>
+        <li>If you only want to receive alerts once a day, once a week, or immediately, you would be able to adjust that setting as well through your profile.</li>
+     </ul>
+  </li>
+  <li>A way to communicate with the people that match your carpool criteria.
+    <ul style="list-style-type:circle">
+        <li>The communication tool would allow people to discuss details about where and what times they would meet, either through a messaging system or via email.</li>
+        <li>For security, if you email potential matches from the website, it would hide the sender's and recipent's email address from each other, but would still allow them to reply to each other.</li>
+        <li>There would also be a way to mark the email as spam or unwanted to help prevent abuse of the message system</li>
+        <li>Website notifies/alerts user of new messages.</li>
+     </ul>
+  </li>
+  <li>A search engine that matches drivers to riders.
+    <ul style="list-style-type:circle">
+        <li>People could search the profiles periodically to find matches even if there weren't any automatic alerts</li>
+        <li>Searches cannot disclose any user profile information due to privacy concerns, only a topic identifier for posting messages to.</li>
+        <li>Profiles are matched based on user preferences when a new user signs up. Existing users receive an alert of this new user and the match. </li>
+     </ul>
+  </li>
+</ol>
+
+ 

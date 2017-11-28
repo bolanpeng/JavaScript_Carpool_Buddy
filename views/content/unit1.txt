@@ -1,0 +1,54 @@
+<p><b>User Story 1 (Customer Description)</b></p>
+<ol type="1">
+  <li>Create a user profile - this will be your search criteria.
+     <ul style="list-style-type:circle">
+        <li>name</li>
+        <li>start address (could be zip code the user lives in)</li>
+        <li>stop address (could be implemented such that everyone has the same stop address, e.g work at the same company</li>
+        <li>start time</li>
+        <li>end time</li>
+        <li>number of carpoil spaces available - when this is zero, stop receiving alerts about possible ne carpool buddies.</li>
+     </ul>
+  </li>
+</ol>
+<p><b>Unit Tests</b></p>
+<p>Each unit test defines a profile of a new user that is inserted into the database.  Ther first test is used to verify each field was stored correctly. The second test is used to verify the defaults values used when a field is not supplied. The third test is used to ensure that a new user is not able to select the email address of an existing profile. Finally, the fourth test is used to ensure that the new profile contains an email entry.</p>
+<img src="images/UT1.png" width="750px" height="300px">
+<p><b>Implementation</b></p>
+<section id="unittest1">
+   <h3>Unit Test 1</h3>
+   <form id="homeform" name="homeform" autocomplete="off">
+      <fieldset>
+         <button type="submit" class="button-submit" id="unit1-test2-submit">Test 2</button>
+         <button type="submit" class="button-submit" id="unit1-test1-submit">Test 1</button>
+         <button type="submit" class="button-submit" id="unit1-test4-submit">Test 4</button>
+         <button type="submit" class="button-submit" id="unit1-test3-submit">Test 3</button>
+      </fieldset>
+    </form>
+    <div>
+      <h5></h5>
+      <ul>
+         <li><span class="resultTitle">Test:</span><span class="result" id="test-description"></span></li></br>
+         <li><span class="resultTitle">Status:</span><span class="result" id="test-status"></span></li></br></br>
+         <li><span class="resultTitle">Comparison:</span><span class="cres">Expected</span><span class="cres">Results</span></li></br>
+         <li><span class="resultTitle">Name:</span><span class="cres" id="name-expected"></span><span class="cres" id="name-results"></span></li></br>
+         <li><span class="resultTitle">Email:</span><span class="cres" id="email-expected"></span><span class="cres" id="email-results"></span></li></br>
+         <li><span class="resultTitle">HomeZipCode:</span><span class="cres" id="homezipcode-expected"></span><span class="cres" id="homezipcode-results"></span></li></br>
+         <li><span class="resultTitle">WorkZipCode:</span><span class="cres" id="workzipcode-expected"></span><span class="cres" id="workzipcode-results"></span></li></br>
+         <li><span class="resultTitle">LeaveHome:</span><span class="cres" id="leavehome-expected"></span><span class="cres" id="leavehome-results"></span></li></br>
+         <li><span class="resultTitle">LeaveWork:</span><span class="cres" id="leavework-expected"></span><span class="cres" id="leavework-results"></span></li></br>
+         <li><span class="resultTitle">WaitTime:</span><span class="cres" id="waittime-expected"></span><span class="cres" id="waittime-results"></span></li></br>
+         <li><span class="resultTitle">EmptySeats:</span><span class="cres" id="emptyseats-expected"></span><span class="cres" id="emptyseats-results"></span></li></br>
+  </div>
+</section>
+<nav>
+   <ul class="pager">
+      <li>
+         <a href="/">Home</a>
+      </li>
+      <li>
+         <a href="/unit2">Unit 2</a>
+      </li>
+   </ul>
+</nav>
+
